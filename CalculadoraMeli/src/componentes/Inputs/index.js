@@ -1,8 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 
 function Inputs() {
-  const {} = useContext(ContextCalcMeli);
+  const { categorias } = useContext(ContextCalcMeli);
+
+	useEffect(() => {
+		setTimeout(() => {console.log(categorias);}, 3000);
+	}, []);
 
   return (
 		<form>
@@ -26,19 +30,10 @@ function Inputs() {
 				Categoria:
 				<select>
 					<option>
-						opcao 1
+						opciones
 					</option>
 					<option>
-						opcao 2
-					</option>
-					<option>
-						opcao 3
-					</option>
-					<option>
-						opcao 4
-					</option>
-					<option>
-						opcao 5
+						options
 					</option>
 				</select>
 			</label>
