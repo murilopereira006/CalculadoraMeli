@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 
 function Inputs() {
-  const { categorias } = useContext(ContextCalcMeli);
+  const { categorias, setCategorias } = useContext(ContextCalcMeli);
 
 	useEffect(() => {
+		setCategorias('pascoa');
 		setTimeout(() => {console.log(categorias);}, 3000);
 	}, []);
 

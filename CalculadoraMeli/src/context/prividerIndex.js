@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ContextCalcMeli from './contextCalcMeli';
 import { getCategories } from '../services/fetchApi';
 
-const CalcMeliProvider = ({children}) => {
+const CalcMeliProvider = ({ children }) => {
 	const [categorias, setCategorias] = useState();
 
 	useEffect(() => {
@@ -27,7 +27,7 @@ const CalcMeliProvider = ({children}) => {
 };
 
 CalcMeliProvider.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default CalcMeliProvider;
