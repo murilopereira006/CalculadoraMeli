@@ -1,13 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
+import { getCategories } from '../../services/fetchApi';
 
 function Inputs() {
   const { categorias, setCategorias } = useContext(ContextCalcMeli);
 
 	useEffect(() => {
-		setCategorias('pascoa');
-		setTimeout(() => {console.log(categorias);}, 3000);
-	}, []);
+    async function apiNewDataCategories() {
+      const data = await getCategories();
+      await setCategorias(data);
+    }
+    apiNewDataCategories();
+  }, []);
 
   return (
 		<form>
@@ -30,12 +34,7 @@ function Inputs() {
 			<label>
 				Categoria:
 				<select>
-					<option>
-						opciones
-					</option>
-					<option>
-						options
-					</option>
+					{ categorias.map(item => <option>{item.name}</option>) }
 				</select>
 			</label>
 			<label>
