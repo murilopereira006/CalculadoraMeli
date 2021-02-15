@@ -3,7 +3,18 @@ import ContextCalcMeli from '../../context/contextCalcMeli';
 import { getCategories } from '../../services/fetchApi';
 
 function Inputs() {
-  const { categorias, setCategorias } = useContext(ContextCalcMeli);
+  const { categorias,
+    setCategorias,
+    nameProduct,
+    setNameProduct,
+    peso,
+    setPeso,
+    choosedCategoria,
+    setchoosedCategoria,
+    reputacao,
+    setReputacao,
+    markup,
+    setMarkup, } = useContext(ContextCalcMeli);
 
 	useEffect(() => {
     async function apiNewDataCategories() {
@@ -21,25 +32,31 @@ function Inputs() {
 					name="nomeProduto"
 					type="text"
 					placeholder="Ex.: Tenis Nike Vapormax"
+          onChange={ ({ target }) => setNameProduct(target.value) }
 				/>
 			</label>
 			<label htmlFor="peso">
 				Peso em quilos:
 				<input
 					name="peso"
-					type="text"
-					placeholder="Kg"
+					type="number"
+					placeholder="1 Kg"
+          onChange={ ({ target }) => setPeso(target.value) }
 				/>
 			</label>
 			<label>
 				Categoria:
-				<select>
+				<select
+          onChange={ ({ target }) => setchoosedCategoria(target.value) }
+        >
 					{ categorias && categorias.map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
 				</select>
 			</label>
 			<label>
 				Reputacao:
-				<select>
+				<select
+          onChange={ ({ target }) => setReputacao(target.value) }
+        >
 					<option
             value="Laranja"
           >
@@ -63,8 +80,15 @@ function Inputs() {
 					name="markUp"
 					type="number"
 					placeholder="1.6"
+          onChange={ ({ target }) => setMarkup(target.value) }
 				/>
 			</label>
+      <button
+        type="button"
+        onClick={ () => console.log(nameProduct, peso, choosedCategoria, reputacao, markup) }
+      >
+        teste
+      </button>
 		</form>
   );
 }
