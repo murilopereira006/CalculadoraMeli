@@ -7,6 +7,8 @@ function Inputs() {
     setCategorias,
     nameProduct,
     setNameProduct,
+    custoFixo,
+    setCustoFixo,
     peso,
     setPeso,
     choosedCategoria,
@@ -27,12 +29,23 @@ function Inputs() {
   return (
 		<form>
 			<label htmlFor="nomeProduto">
-				Titulo do anuncio:
+				Título do anúncio:
 				<input
 					name="nomeProduto"
 					type="text"
 					placeholder="Ex.: Tenis Nike Vapormax"
+          required='required'
           onChange={ ({ target }) => setNameProduct(target.value) }
+				/>
+			</label>
+      <label htmlFor="custoFixo">
+				Custo do produto: R$
+				<input
+					name="custoFixo"
+					type="number"
+					placeholder="30,00"
+          required='required'
+          onChange={ ({ target }) => setCustoFixo(target.value) }
 				/>
 			</label>
 			<label htmlFor="peso">
@@ -47,16 +60,22 @@ function Inputs() {
 			<label>
 				Categoria:
 				<select
+          required='required'
           onChange={ ({ target }) => setchoosedCategoria(target.value) }
         >
-					{ categorias && categorias.map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
+					{ categorias && categorias
+            .map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
 				</select>
 			</label>
 			<label>
 				Reputacao:
 				<select
+          required='required'
           onChange={ ({ target }) => setReputacao(target.value) }
         >
+        <option>
+          Selecione
+        </option>
 					<option
             value="Laranja"
           >
@@ -84,8 +103,8 @@ function Inputs() {
 				/>
 			</label>
       <button
-        type="button"
-        onClick={ () => console.log(nameProduct, peso, choosedCategoria, reputacao, markup) }
+        type="submit"
+        onClick={ () => console.log(nameProduct, custoFixo, peso, choosedCategoria, reputacao, markup) }
       >
         teste
       </button>

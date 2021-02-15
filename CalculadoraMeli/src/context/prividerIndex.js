@@ -4,6 +4,7 @@ import ContextCalcMeli from './contextCalcMeli';
 
 const CalcMeliProvider = ({ children }) => {
   const [nameProduct, setNameProduct] = useState('');
+  const [custoFixo, setCustoFixo] = useState(0);
   const [peso, setPeso] = useState(1);
 	const [categorias, setCategorias] = useState();
 	const [choosedCategoria, setchoosedCategoria] = useState();
@@ -14,6 +15,8 @@ const CalcMeliProvider = ({ children }) => {
 	const context = {
     nameProduct,
     setNameProduct,
+    custoFixo,
+    setCustoFixo,
     peso,
     setPeso,
 		categorias,
