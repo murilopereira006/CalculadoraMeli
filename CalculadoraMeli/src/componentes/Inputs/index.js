@@ -38,6 +38,7 @@ function Inputs() {
           onChange={ ({ target }) => setNameProduct(target.value) }
 				/>
 			</label>
+      <br />
       <label htmlFor="custoFixo">
 				Custo do produto: R$
 				<input
@@ -48,6 +49,7 @@ function Inputs() {
           onChange={ ({ target }) => setCustoFixo(target.value) }
 				/>
 			</label>
+      <br />
 			<label htmlFor="peso">
 				Peso em quilos:
 				<input
@@ -57,6 +59,7 @@ function Inputs() {
           onChange={ ({ target }) => setPeso(target.value) }
 				/>
 			</label>
+      <br />
 			<label>
 				Categoria:
 				<select
@@ -67,13 +70,16 @@ function Inputs() {
             .map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
 				</select>
 			</label>
+      <br />
 			<label>
 				Reputacao:
 				<select
           required='required'
           onChange={ ({ target }) => setReputacao(target.value) }
         >
-        <option>
+        <option
+            value="Amarelo"
+          >
           Selecione
         </option>
 					<option
@@ -93,6 +99,7 @@ function Inputs() {
 					</option>
 				</select>
 			</label>
+      <br />
 			<label htmlFor="markUp">
 				Markup:
 				<input
@@ -102,6 +109,7 @@ function Inputs() {
           onChange={ ({ target }) => setMarkup(target.value) }
 				/>
 			</label>
+      <br />
       <button
         type="submit"
         onClick={ () => console.log(nameProduct, custoFixo, peso, choosedCategoria, reputacao, markup) }
