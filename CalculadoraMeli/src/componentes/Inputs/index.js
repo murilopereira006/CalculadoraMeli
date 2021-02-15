@@ -34,19 +34,25 @@ function Inputs() {
 			<label>
 				Categoria:
 				<select>
-					{ categorias.map(item => <option>{item.name}</option>) }
+					{ categorias && categorias.map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
 				</select>
 			</label>
 			<label>
 				Reputacao:
 				<select>
-					<option>
+					<option
+            value="Laranja"
+          >
 						Laranja
 					</option>
-					<option>
+					<option
+            value="Amarelo"
+          >
 						Amarelo
 					</option>
-					<option>
+					<option
+            value="Verde"
+          >
 						Verde
 					</option>
 				</select>
