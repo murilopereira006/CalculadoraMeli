@@ -5,18 +5,14 @@ import { getCategories } from '../../services/fetchApi';
 function Inputs() {
   const { categorias,
     setCategorias,
-    nameProduct,
     setNameProduct,
-    custoFixo,
     setCustoFixo,
     peso,
     setPeso,
-    choosedCategoria,
     setchoosedCategoria,
-    reputacao,
     setReputacao,
-    markup,
-    setMarkup, } = useContext(ContextCalcMeli);
+    setMarkup,
+    calcFrete, } = useContext(ContextCalcMeli);
 
 	useEffect(() => {
     async function apiNewDataCategories() {
@@ -78,22 +74,22 @@ function Inputs() {
           onChange={ ({ target }) => setReputacao(target.value) }
         >
         <option
-            value="Amarelo"
+            value={0}
           >
           Selecione
         </option>
 					<option
-            value="Laranja"
+            value={1}
           >
 						Laranja
 					</option>
 					<option
-            value="Amarelo"
+            value={0.6}
           >
 						Amarelo
 					</option>
 					<option
-            value="Verde"
+            value={0.5}
           >
 						Verde
 					</option>
@@ -111,8 +107,8 @@ function Inputs() {
 			</label>
       <br />
       <button
-        type="submit"
-        onClick={ () => console.log(nameProduct, custoFixo, peso, choosedCategoria, reputacao, markup) }
+        type="button"
+        onClick={ () => calcFrete(parseFloat(peso)) }
       >
         teste
       </button>
