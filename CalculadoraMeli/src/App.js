@@ -7,6 +7,7 @@ import MarketPrice from './componentes/Concorrencia';
 import './App.css';
 
 function App() {
+
   return (
     <Provider>
       <Header />

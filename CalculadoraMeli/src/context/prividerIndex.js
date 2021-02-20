@@ -24,7 +24,6 @@ const CalcMeliProvider = ({ children }) => {
       if (currPeso > 13 && currPeso <= 17) setFrete(187.9 * reputacao);
       if (currPeso > 17 && currPeso <= 23) setFrete(209.9 * reputacao);
       if (currPeso > 23 && currPeso <= 30) setFrete(219.9 * reputacao);
-      if (currPeso > 30) setFrete('Nao permitido!');
     } else {
       setFrete(5);
     }

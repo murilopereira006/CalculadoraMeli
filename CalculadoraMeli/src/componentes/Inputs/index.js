@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 import { getCategories } from '../../services/fetchApi';
 
@@ -15,6 +15,8 @@ function Inputs() {
     markup,
     setMarkup,
     calcFrete, } = useContext(ContextCalcMeli);
+
+  const [able, setAble] = useState(false);
   const parcialPrice = custoFixo * markup;
 
 	useEffect(() => {
@@ -24,6 +26,14 @@ function Inputs() {
     }
     apiNewDataCategories();
   }, []);
+
+  useEffect(() => {
+    function isAble() {
+      if (peso !== 0 && custoFixo !== 0) setAble(true);
+      else setAble(false);
+    }
+    isAble();
+  }, [peso, custoFixo]);
 
   return (
 		<form>
@@ -109,12 +119,12 @@ function Inputs() {
 				/>
 			</label>
       <br />
-      <button
+      { able ? <button
         type="button"
         onClick={ () => calcFrete(parseFloat(peso), parcialPrice) }
       >
-        teste
-      </button>
+        Calcular
+      </button> : <button disabled="disabled">Calcular</button> }
 		</form>
   );
 }

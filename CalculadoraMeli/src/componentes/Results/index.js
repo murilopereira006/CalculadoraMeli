@@ -5,15 +5,18 @@ function Results() {
   const { nameProduct,
     custoFixo,
     frete,
+    peso,
     choosedCategoria,
     reputacao,
     markup, } = useContext(ContextCalcMeli);
-    const parcialPrice = custoFixo * markup;
-    const finalFrete = (parseFloat(frete) < 99 ? parseFloat(frete) : parseFloat(frete) * reputacao);
-    const taxas = parcialPrice * 0.16;
-    const totalPrice = parcialPrice + finalFrete + taxas;
 
-  return (
+  const parcialPrice = custoFixo * markup;
+  const finalFrete = (parseFloat(frete) < 99 ? parseFloat(frete) : parseFloat(frete) * reputacao);
+  const taxas = parcialPrice * 0.16;
+  const totalPrice = parcialPrice + finalFrete + taxas;
+
+  if (peso > 30) return ( <h2>Peso limite excedido!</h2> );
+  else return (
     <div>
       <h1>Valor a ser anunciado:</h1>
       <h1>R$ { totalPrice }</h1>
