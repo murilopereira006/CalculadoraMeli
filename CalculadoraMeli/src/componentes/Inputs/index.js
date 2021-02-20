@@ -10,7 +10,6 @@ function Inputs() {
     setCustoFixo,
     peso,
     setPeso,
-    setchoosedCategoria,
     setReputacao,
     markup,
     setMarkup,
@@ -75,11 +74,11 @@ function Inputs() {
 				Categoria:
 				<select
           required='required'
-          onChange={ ({ target }) => { setchoosedCategoria(target.value); setIdCategoria(target.id); console.log(target.value) } }
+          onChange={ ({ target }) => setIdCategoria(target.value) }
         >
-          <option value={ 0 }>Selecione a Categoria</option>
+          <option value={ 0 } id={ 0 } >Selecione a Categoria</option>
 					{ categorias && categorias
-            .map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
+            .map((item) => <option id={ item.name } key={ item.name } value={ item.id }>{item.name}</option>) }
 				</select>
 			</label>
       <br />

@@ -7,7 +7,6 @@ const CalcMeliProvider = ({ children }) => {
   const [custoFixo, setCustoFixo] = useState(0);
   const [peso, setPeso] = useState(0);
 	const [categorias, setCategorias] = useState();
-	const [choosedCategoria, setchoosedCategoria] = useState();
 	const [idCategoria, setIdCategoria] = useState(0);
   const [reputacao, setReputacao] = useState(1);
   const [markup, setMarkup] = useState(1.6);
@@ -40,8 +39,6 @@ const CalcMeliProvider = ({ children }) => {
     setPeso,
 		categorias,
 		setCategorias,
-    choosedCategoria,
-    setchoosedCategoria,
     reputacao,
     setReputacao,
     markup,
