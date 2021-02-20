@@ -14,7 +14,9 @@ function Inputs() {
     setReputacao,
     markup,
     setMarkup,
-    calcFrete, } = useContext(ContextCalcMeli);
+    calcFrete,
+    setIdCategoria,
+    setShowResults, } = useContext(ContextCalcMeli);
 
   const [able, setAble] = useState(false);
   const parcialPrice = custoFixo * markup;
@@ -73,8 +75,9 @@ function Inputs() {
 				Categoria:
 				<select
           required='required'
-          onChange={ ({ target }) => setchoosedCategoria(target.value) }
+          onChange={ ({ target }) => { setchoosedCategoria(target.value); setIdCategoria(target.id); console.log(target.value) } }
         >
+          <option value={ 0 }>Selecione a Categoria</option>
 					{ categorias && categorias
             .map((item) => <option id={ item.id } value={ item.name }>{item.name}</option>) }
 				</select>
@@ -121,7 +124,7 @@ function Inputs() {
       <br />
       { able ? <button
         type="button"
-        onClick={ () => calcFrete(parseFloat(peso), parcialPrice) }
+        onClick={ () => { calcFrete(parseFloat(peso), parcialPrice); setShowResults(true); } }
       >
         Calcular
       </button> : <button disabled="disabled">Calcular</button> }

@@ -8,9 +8,11 @@ const CalcMeliProvider = ({ children }) => {
   const [peso, setPeso] = useState(0);
 	const [categorias, setCategorias] = useState();
 	const [choosedCategoria, setchoosedCategoria] = useState();
+	const [idCategoria, setIdCategoria] = useState(0);
   const [reputacao, setReputacao] = useState(1);
   const [markup, setMarkup] = useState(1.6);
 	const [frete, setFrete] = useState(0);
+  const [showResults, setShowResults] = useState(false);
 
   const calcFrete = (currPeso, parcialPrice) => {
     if (parcialPrice >= 99) {
@@ -46,6 +48,10 @@ const CalcMeliProvider = ({ children }) => {
     setMarkup,
     frete,
     calcFrete,
+    idCategoria,
+    setIdCategoria,
+    showResults,
+    setShowResults,
 	};
 
 	return (

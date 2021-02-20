@@ -2,11 +2,9 @@ import React, { useContext } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 
 function Results() {
-  const { nameProduct,
-    custoFixo,
+  const { custoFixo,
     frete,
     peso,
-    choosedCategoria,
     reputacao,
     markup, } = useContext(ContextCalcMeli);
 
