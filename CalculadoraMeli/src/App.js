@@ -1,14 +1,20 @@
 import React from 'react';
-import './App.css';
+import Provider from './context/prividerIndex';
 import Header from './componentes/Header';
-import Inputs from './componentes/Inputs';
+import Form from './componentes/Inputs';
+import Results from './componentes/Results';
+import MarketPrice from './componentes/Concorrencia';
+import './App.css';
 
 function App() {
+
   return (
-    <div>
+    <Provider>
       <Header />
-      <Inputs />
-    </div>
+      <Form />
+      <Results />
+      <MarketPrice />
+    </Provider>
   );
 }
 
