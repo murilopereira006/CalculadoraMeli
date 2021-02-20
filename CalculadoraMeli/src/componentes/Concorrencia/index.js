@@ -3,16 +3,16 @@ import ContextCalcMeli from '../../context/contextCalcMeli';
 import { getProductsFromCategoryAndQuery, getProductsFromQuery } from '../../services/fetchApi';
 
 function MarketPrice() {
-  const { nameProduct, idCategoria, frete } = useContext(ContextCalcMeli);
+  const { nameProduct, idCategoria } = useContext(ContextCalcMeli);
   const [products, setProducts] = useState();
 
   useEffect(() => {
     async function apiNewProducts() {
-      const data = await getProductsFromCategoryAndQuery(idCategoria, nameProduct);
+      const data = idCategoria !== 0 ? await getProductsFromCategoryAndQuery(idCategoria, nameProduct) : await getProductsFromQuery(nameProduct);
       await setProducts(data);
     }
     apiNewProducts();
-  }, [frete]);
+  }, [idCategoria]);
 
   return (
     <div>
