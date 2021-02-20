@@ -6,13 +6,16 @@ function Inputs() {
   const { categorias,
     setCategorias,
     setNameProduct,
+    custoFixo,
     setCustoFixo,
     peso,
     setPeso,
     setchoosedCategoria,
     setReputacao,
+    markup,
     setMarkup,
     calcFrete, } = useContext(ContextCalcMeli);
+  const parcialPrice = custoFixo * markup;
 
 	useEffect(() => {
     async function apiNewDataCategories() {
@@ -108,7 +111,7 @@ function Inputs() {
       <br />
       <button
         type="button"
-        onClick={ () => calcFrete(parseFloat(peso)) }
+        onClick={ () => calcFrete(parseFloat(peso), parcialPrice) }
       >
         teste
       </button>

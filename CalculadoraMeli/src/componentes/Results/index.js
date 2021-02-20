@@ -9,15 +9,18 @@ function Results() {
     reputacao,
     markup, } = useContext(ContextCalcMeli);
     const parcialPrice = custoFixo * markup;
+    const finalFrete = (parseFloat(frete) < 99 ? parseFloat(frete) : parseFloat(frete) * reputacao);
+    const taxas = parcialPrice * 0.16;
+    const totalPrice = parcialPrice + finalFrete + taxas;
 
   return (
     <div>
       <h1>Valor a ser anunciado:</h1>
-      <h1>R$ { parcialPrice * 1.17 + parseInt(frete)}((custo * markup)+taxa)+frete</h1>
-      <h2>Lucro Líquido: R$ Valor a ser anunciado - taxa - frete - custo</h2>
-      <h4>Taxa anúncio clássico: R$ { frete }</h4>
-      <h4>Taxa anúncio premium: R$ 00,00</h4>
-      <h4>Frete: R$ {markup}</h4>
+      <h1>R$ { totalPrice }</h1>
+      <h2>Lucro Líquido: R$ { totalPrice - custoFixo - finalFrete - taxas }</h2>
+      <h4>Taxa anúncio clássico (aproximadamente 12%): R$ { parcialPrice * 0.12 }</h4>
+      <h4>Taxa anúncio premium (aproximadamente 16%): R$ { parcialPrice * 0.16 }</h4>
+      <h4>Frete: R$ { finalFrete }</h4>
     </div>
   );
 }
