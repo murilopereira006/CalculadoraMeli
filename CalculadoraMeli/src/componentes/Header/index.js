@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
+import './header.css'
 
 function Header() {
   const {} = useContext(ContextCalcMeli);
 
   return (
-    <div>
-      <h1>Calculadora custos do Mercado Livre</h1>
-      <h3>Saiba exatamente o quanto gasta ao vender no Meli!</h3>
+    <div className="body" >
+      <h1 className="h1Header" >Calculadora custos Mercado Livre</h1>
+      <h3 className="h3Header" >Saiba exatamente o quanto gasta ao vender no Meli!</h3>
     </div>
   );
 }
