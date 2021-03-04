@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 import { getCategories } from '../../services/fetchApi';
+import './inputs.css';
 
 function Inputs() {
   const { categorias,
@@ -37,7 +38,7 @@ function Inputs() {
   }, [peso, custoFixo]);
 
   return (
-		<form>
+		<form className="bodyInput">
 			<label htmlFor="nomeProduto">
 				Título do anúncio:
 				<input
