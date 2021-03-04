@@ -1,0 +1,10 @@
+.bodyInput {
+  margin-left: 35px;
+  margin-top: 15px;
+}
+
+input, select {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
