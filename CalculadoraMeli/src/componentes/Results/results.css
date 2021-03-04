@@ -1,0 +1,15 @@
+.divResults {
+  display: inline-block;
+}
+
+h1, h2, h4 {
+  margin-left: 35px;
+}
+
+.taxaMLvirgente {
+  color: green;
+}
+
+.taxaMLnaoVirgente {
+  color: red;
+}

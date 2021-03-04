@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
 import { getCategories } from '../../services/fetchApi';
-import './inputs.css'
+import './inputs.css';
 
 function Inputs() {
   const { categorias,

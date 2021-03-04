@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ContextCalcMeli from '../../context/contextCalcMeli';
-import './header.css'
+import './header.css';
 
 function Header() {
   const {} = useContext(ContextCalcMeli);
